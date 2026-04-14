@@ -1,10 +1,6 @@
-FROM mcr.microsoft.com/devcontainers/python:1-3.11-bookworm
+FROM mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm
 
-# apt repo を先に除去
-RUN rm -f /etc/apt/sources.list.d/yarn.list /etc/apt/sources.list.d/yarn.list.save \
-    && apt-get update \
-    && apt-get install -y curl ca-certificates git \
-    && rm -rf /var/lib/apt/lists/*
+RUN npm install -g @google/gemini-cli@latest
 
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
     && cp /root/.local/bin/uv /usr/local/bin/uv \
