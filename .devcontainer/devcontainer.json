@@ -3,13 +3,11 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "forwardPorts": [8080],
-  "postCreateCommand": "uv venv && . .venv/bin/activate && uv pip install openai && if [ ! -d Bonsai-demo ]; then git clone https://github.com/PrismML-Eng/Bonsai-demo.git; fi && cd Bonsai-demo && BONSAI_MODEL=1.7B ./setup.sh",
-  "customizations": {
-    "vscode": {
-      "settings": {
-        "python.defaultInterpreterPath": "/workspaces/${localWorkspaceFolderBasename}/.venv/bin/python"
-      }
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22"
     }
-  }
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "npm install -g @google/gemini-cli && uv venv && . .venv/bin/activate && uv pip install openai"
 }
