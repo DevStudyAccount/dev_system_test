@@ -5,6 +5,7 @@
 - まず, interface.pyを一番上の階層に作成する
   - コミット, マージしてみよう
   - 左のソース管理アイコンを押し, interface.pyの+ボタンを押す。メッセージで変更内容を簡潔に書き, コミットボタンを押し, さらに変更を同期ボタンを押す
+    - メッセージを間違えたらターミナルから git commit --amend -m "正しいメッセージ"
 - 以下の手順を, codespace上のターミナルで1行ずつ行う
 ```Bash
 git clone https://github.com/PrismML-Eng/Bonsai-demo.git
