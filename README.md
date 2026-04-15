@@ -40,7 +40,8 @@ scripts/start_llama_server.sh
 ```Bash
 cd Bonsai-demo
 source .venv/bin/activate
-python3 interface.py
+uv pip install openai
+python3 ../interface.py
 ```
 - cd Bonsai-demo で落としてきたBonsaiのフォルダに移動
 - source .venv/bin/activateで仮想環境venvに入る
