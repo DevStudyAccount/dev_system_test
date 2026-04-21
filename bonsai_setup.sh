@@ -34,6 +34,24 @@ source .venv/bin/activate
 uv pip install openai
 
 export BONSAI_MODEL="$MODEL_SIZE"
-./setup.sh
+
+case "$MODEL_SIZE" in
+  1.7B)
+    MODEL_FILE="Bonsai-1.7B.gguf"
+    ;;
+  4B)
+    MODEL_FILE="Bonsai-4B.gguf"
+    ;;
+  8B)
+    MODEL_FILE="Bonsai-8B.gguf"
+    ;;
+esac
+
+if find . -name "$MODEL_FILE" | grep -q .; then
+  echo "$MODEL_FILE はすでに存在するため、setup.sh をスキップします。"
+else
+  echo "$MODEL_FILE が見つからないため、setup.sh を実行します。"
+  ./setup.sh
+fi
 
 scripts/start_llama_server.sh
